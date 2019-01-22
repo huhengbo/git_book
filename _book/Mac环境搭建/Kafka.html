@@ -1,0 +1,322 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Kafa · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Node.js.html" />
+    
+    
+    <link rel="prev" href="Gitbook搭建.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    About Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Mac开发环境
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Gitbook搭建.html">
+            
+                <a href="Gitbook搭建.html">
+            
+                    
+                    Gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="Kafka.html">
+            
+                <a href="Kafka.html">
+            
+                    
+                    Kafa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Node.js.html">
+            
+                <a href="Node.js.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Kafa</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="docker-&#x5B89;&#x88C5;kafka">Docker &#x5B89;&#x88C5;Kafka</h2>
+<h3 id="0x01-&#x88C5;&#x524D;&#x987B;&#x77E5;">0x01 &#x88C5;&#x524D;&#x987B;&#x77E5;</h3>
+<pre><code>1. Kafka&#x9700;&#x8981;&#x4F9D;&#x8D56;Zookeepr
+2. Kafka&#x73B0;&#x5728;&#x6CA1;&#x6709;&#x5B98;&#x65B9;&#x6E90;&#xFF0C;&#x6240;&#x4EE5;&#x73B0;&#x9636;&#x6BB5;&#x53EA;&#x80FD;&#x9009;&#x62E9;&#x7B2C;&#x4E09;&#x65B9;&#xFF0C;&#x6216;&#x8005;&#x81EA;&#x5DF1;&#x5199;DockerFile
+3. &#x672A;&#x5B8C;&#x5F85;&#x7EED;
+</code></pre><h3 id="0x02-&#x5B89;&#x88C5;">0x02 &#x5B89;&#x88C5;</h3>
+<pre><code>1. &#x65B0;&#x5EFA;Docker-compose.yml &#x6587;&#x4EF6;
+2. &#x5F55;&#x5165;&#x4E0B;&#x9762;&#x6570;&#x636E;
+</code></pre><pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-string">&apos;2.1&apos;</span>
+<span class="hljs-attr">services:</span>
+<span class="hljs-attr">  zookeeper:</span>
+<span class="hljs-attr">    image:</span> wurstmeister/zookeeper
+<span class="hljs-attr">    ports:</span>
+        <span class="hljs-comment"># &#x5BBF;&#x4E3B;:&#x5BB9;&#x5668;</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">2181</span>:<span class="hljs-number">2181</span>
+<span class="hljs-attr">  kafka:</span>
+<span class="hljs-attr">    image:</span> wurstmeister/kafka
+<span class="hljs-attr">    ports:</span>
+<span class="hljs-bullet">      -</span> <span class="hljs-number">9092</span>:<span class="hljs-number">9092</span>
+<span class="hljs-attr">    environment:</span>
+        <span class="hljs-comment"># &#x5BBF;&#x4E3B;&#x673A;IP</span>
+<span class="hljs-attr">      KAFKA_ADVERTISED_HOST_NAME:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.118</span>
+<span class="hljs-attr">      KAFKA_ZOOKEEPER_CONNECT:</span> zookeeper:<span class="hljs-number">2181</span>
+<span class="hljs-attr">    volumes:</span>
+<span class="hljs-bullet">      -</span> /var/run/docker.sock:/var/run/docker.sock
+</code></pre>
+<h3 id="0x03-&#x542F;&#x52A8;">0x03 &#x542F;&#x52A8;</h3>
+<pre><code>1. &#x5355;&#x8282;&#x70B9;&#x542F;&#x52A8; docker-compose up -d
+2. &#x591A;&#x8282;&#x70B9;&#x542F;&#x52A8; docker-compose scale kafka=3
+</code></pre><h3 id="0x04-&#x6CE8;&#x610F;&#x4E8B;&#x9879;">0x04 &#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
+<pre><code>1. &#x66B4;&#x9732;&#x7AEF;&#x53E3;&#x4FE1;&#x606F;&#x3002;&#x4F7F;&#x7528;&#x5BBF;&#x4E3B;&#xFF1A;&#x5BB9;&#x5668; &#xFF08;HOST:CONTAINER&#xFF09;&#x683C;&#x5F0F;&#x6216;&#x8005;&#x4EC5;&#x4EC5;&#x6307;&#x5B9A;&#x5BB9;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#xFF08;&#x5BBF;&#x4E3B;&#x5C06;&#x4F1A;&#x968F;&#x673A;&#x9009;&#x62E9;&#x7AEF;&#x53E3;&#xFF09;&#x90FD;&#x53EF;&#x4EE5;&#x3002;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Gitbook搭建.html" class="navigation navigation-prev " aria-label="Previous page: Gitbook">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Node.js.html" class="navigation navigation-next " aria-label="Next page: Node.js">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Kafa","level":"1.2.2","depth":2,"next":{"title":"Node.js","level":"1.2.3","depth":2,"path":"Mac环境搭建/Node.js.md","ref":"./Mac环境搭建/Node.js.md","articles":[]},"previous":{"title":"Gitbook","level":"1.2.1","depth":2,"path":"Mac环境搭建/Gitbook搭建.md","ref":"./Mac环境搭建/Gitbook搭建.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Mac环境搭建/Kafka.md","mtime":"2019-01-22T06:26:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-22T08:10:18.667Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
